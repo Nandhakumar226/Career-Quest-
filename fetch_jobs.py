@@ -140,7 +140,7 @@ def main():
     dedup={}
     for j in filtered: dedup[j["id"]]=j
     jobs=list(dedup.values())
-    jobs.sort(key=lambda x:x.get("posted") or x.get("fetchedAt") or "",reverse=True)
+    jobs.sort(key=lambda x: str(x.get("posted") or x.get("fetchedAt") or ""), reverse=True)
     jobs=jobs[:600]
     previous={}
     if OUT.exists():
